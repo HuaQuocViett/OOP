@@ -1,48 +1,62 @@
-﻿using System;
+﻿using Ontap_lab5;
+using System;
 
-namespace Login
+namespace Lab5
 {
-
     class Program
     {
-        static void log()
+
+
+
+        static void Bai_Shape()
         {
-            string n;
-            string key;
-            Console.WriteLine("Nhap vao mat khau: \t");
-            n = Console.ReadLine();
-            key = "123";
-            string pass = key;
-            byte maxlog = 3;
-            if (n != pass)
+            ds_Rectangle ds = new ds_Rectangle();
+            ds.Nhap_ds();
+            ds.XapSep();
+            ds.Xuat_ds();
+            ds.XoaPtuDau();
+            ds.XapSep();
+            ds.Xuat_ds();
+            ds.Addptu();
+            ds.XapSep();
+            ds.Xuat_ds();
+            ds.TinhTong();
+        }
+        static void Bai_Maytinh()
+        {
+            bool Chon;
+            Console.WriteLine("Nhap True = Laptop | false = Macbook: ");
+            Chon = Convert.ToBoolean(Console.ReadLine());
+            if (Chon)
             {
-                for (int i = 0; i < maxlog; i++)
-                {
-                    Console.WriteLine("Mat khau khong chinh xac! \t");
-                    if (i < maxlog)
-                    {
-                        Console.WriteLine("Vui long nhap lai mat khau: \t");
-                        n = Console.ReadLine();
-                        if (n == pass)
-                        {
-                            Console.WriteLine("\tDang nhap thanh cong!");
-                            break;
-                        }
-                    }
-                }
-                if (n != pass)
-                {
-                    Console.WriteLine("\tBan da nhap qua so lan, hay thu lai sau 5 phut!");
-                }
+                DS_Laptop lt = new DS_Laptop();
+                lt.Nhap_ds1();
+                lt.SapXep();
+                lt.Xuat_ds1();
+                lt.XoaPtuDau();
+                lt.Xuat_ds1();
+                lt.TongSoLuong();
             }
             else
             {
-                Console.WriteLine("\tDang nhap thanh cong!");
+                DS_Macbook m = new DS_Macbook();
+                m.Nhap_ds2();
+                m.SapXep();
+                m.Xuat_ds2();
+                m.TongSoLuong();
             }
+        }
+        static void HocPhann()
+        {
+            DS_HocPhan hp = new DS_HocPhan();
+            hp.NhapDS();
+            hp.XuatDS();
         }
         static void Main(string[] args)
         {
-            log();
+            //Bai_Shape();
+            //Bai_Maytinh();
+            HocPhann();
         }
     }
 }
